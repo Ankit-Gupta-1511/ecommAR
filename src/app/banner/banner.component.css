@@ -1,0 +1,17 @@
+.overlay-text {
+    color: white;
+    font-size: 3em;
+    font-weight: bold;
+    width: 60%;
+}
+
+.cta-container {
+    width: 100%;
+}
+
+.cta-btn {
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    padding: 5px;
+}

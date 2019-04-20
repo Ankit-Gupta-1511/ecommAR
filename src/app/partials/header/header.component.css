@@ -1,0 +1,15 @@
+.logo {
+   
+}
+.nav-link {
+    color: white;
+    padding: 10px;
+    margin: 0 20px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.header.flex div {
+    flex-grow: 1;
+}
