@@ -1,8 +1,38 @@
-<div class="webcam-container">
-    <video  id="_webcam" playsinline width="640px" height="480px"></video>
-		<canvas id="_imageData" width="640px" height="480px"></canvas>
-		<canvas id="_faceSub" width="640px" height="480px"></canvas>
-		<canvas id="_t3d" width="640px" height="480px"></canvas>
-		<canvas id="_f3d" width="640px" height="480px"></canvas>
-		<canvas id="_drawing" width="640px" height="480px"></canvas>
+<div class="container">
+
+	<div class="flex">
+			<div class="webcam-container">
+					<video  id="_webcam" playsinline width="640px" height="480px"></video>
+					<canvas id="_imageData" width="640px" height="480px"></canvas>
+					<canvas id="_faceSub" width="640px" height="480px"></canvas>
+					<canvas id="_t3d" width="640px" height="480px"></canvas>
+					<canvas id="_f3d" width="640px" height="480px"></canvas>
+					<canvas id="_drawing" width="640px" height="480px"></canvas>
+			</div>
+			
+			<div class="product-details">
+					<h1 class="product-title">
+							{{ currentProduct.name }}
+						</h1>
+				
+						<h1 class="product-price">
+							Rs. {{ currentProduct.price }}
+						</h1>
+				
+						<div class="cta-btn-list">
+							<button mat-raised-button class="cta-btn detail-btn">Add To Cart</button>
+						</div>
+			</div>
+	</div>
+
+	<div class="">
+			<mat-card>
+				<div class="product-list">
+					<div *ngFor="let product of productList" class="product-thumbnail thumbnail" (click)="productChange(product)">
+						<img src="{{product.images[0]}}" alt="">
+					</div>
+				</div>
+			</mat-card>
+	</div>
+		
 </div>

@@ -16,6 +16,16 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatButtonModule} from '@angular/material/button';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MatCardModule } from '@angular/material/card';
+import { MatTabsModule } from '@angular/material/tabs';
+import { CartComponent } from './cart/cart.component';
+import {MatListModule} from '@angular/material/list';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {FormsModule} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   {
@@ -39,8 +49,12 @@ const appRoutes: Routes = [
     component: ProductDetailsComponent
   },
   {
-    path: 'virtual-try-on',
+    path: 'virtual-try-on/:id',
     component: ArComponent
+  },
+  {
+    path: 'cart',
+    component: CartComponent
   }
 ];
 
@@ -56,7 +70,8 @@ const appRoutes: Routes = [
     LoginComponent,
     ProductListComponent,
     ProductDetailsComponent,
-    SignUpComponent
+    SignUpComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +80,16 @@ const appRoutes: Routes = [
       appRoutes,
     ),
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule,
+    MatCardModule,
+    MatTabsModule,
+    MatListModule,
+    MatDividerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

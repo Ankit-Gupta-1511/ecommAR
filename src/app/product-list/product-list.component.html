@@ -1,3 +1,28 @@
-<p>
-  product-list works!
-</p>
+<div class="product-list container grid grid-columns-4 justify-items-center">
+      <mat-card class="product-card" *ngFor="let product of productList">
+  
+        <a routerLink="/product/{{ product._id }}" >
+          
+        <mat-card-header>
+            <div class="flex align-items-baseline justify-content-space-between">
+                <mat-card-title>{{ product.name }}</mat-card-title>
+                <mat-card-title>Rs. {{ product.price }}</mat-card-title>
+            </div>
+          </mat-card-header>
+          </a>
+          <mat-card-content>
+            <div>
+              <img mat-card-image src="{{ image }}" alt="{{ product.name }}" *ngFor="let image of product.images">
+            </div>
+            <p>
+              {{ product.description }}
+            </p>
+          </mat-card-content>
+          <mat-card-actions>
+            <button mat-raised-button class="cta-btn">Add To Cart</button>
+            <a mat-raised-button routerLink="/virtual-try-on/{{ product._id }}" class="alternate-cta-btn">Try Now</a>
+          </mat-card-actions>
+        </mat-card>
+  
+  
+</div>

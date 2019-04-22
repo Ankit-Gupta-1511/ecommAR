@@ -6,6 +6,16 @@ html, body {
     padding: 0;
 }
 
+img {
+    width: 100%;
+    margin: auto;
+}
+
+.mat-card-image {
+    width: 100% !important;
+    margin: auto !important;
+}
+
 .flex {
     display: flex;
     flex-flow: row wrap;
@@ -19,8 +29,56 @@ html, body {
     align-items: center;
 }
 
+.align-self-end {
+    align-self: end;
+}
+
+.margin-left-auto {
+    margin-left: auto;
+}
+
+.justify-content-space-between {
+    justify-content: space-between;
+}
+
+.align-items-baseline {
+    align-items: baseline;
+}
+
 .cta-btn {
     color: white;
     background-color: #fa8b6e;
     font-weight: bold;
+}
+
+.alternate-cta-btn {
+    color: white;
+    background-color: #331774;
+    font-weight: bold;
+}
+
+.grid {
+    display: grid;
+    grid-row-gap: 40px;
+    grid-column-gap: 20px;
+}
+
+.grid-columns-2 {
+    grid-template-columns: 2fr 1fr;
+}
+
+.grid-columns-4 {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.grid-columns-5 {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.justify-items-center {
+    justify-items: center;
+}
+
+.justify-self-center {
+    justify-self: center;
 }

@@ -1,0 +1,59 @@
+<div class="cart-container">
+  <div class="flex">
+      <div class="product-list">
+          <mat-card>
+              <div class="" *ngFor="let product of productList">
+                    <div class="flex list-item">
+                      <div class="thumbnail">
+                        <img src="{{ product.images[0] }}" alt="">
+                      </div>
+                      <h3>{{ product.name }}</h3>
+                      <h3>Rs. {{ product.price }}</h3>
+                      <div>
+                          <button mat-raised-button color="warn" class="cart-btn">Remove</button>
+                      </div>
+                    </div>
+                  <!-- <mat-divider></mat-divider> -->
+              </div>
+            </mat-card>
+      </div>
+      <div class="bill-container">
+        <mat-card>
+          <div class="bill grid grid-columns-2">
+              <div class="bill-heading">
+                Price Of Items:
+              </div>
+              <div class="bill-heading">
+                Rs. {{ totalPrice }}
+              </div>
+    
+              <div class="bill-heading">
+                Tax:
+              </div>
+    
+              <div class="bill-heading">
+                Rs. {{ taxAmount }}
+              </div>
+    
+              <div class="bill-heading">
+                Price to Pay:
+              </div>
+    
+              <div class="bill-heading">
+                Rs. {{ priceToPay }}
+              </div>
+          </div>
+        </mat-card>
+          <div class="cta-container">
+              <button mat-raised-button class="cta-btn">
+                Place Order
+              </button>
+            </div>
+      </div>
+      
+  </div>
+    
+    
+    
+    
+</div>

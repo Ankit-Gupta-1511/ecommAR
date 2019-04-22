@@ -13,19 +13,20 @@ function init(brfv4, virtualMirror) {
 	setupDrawing(virtualMirror);
 	setupT3d(virtualMirror);
 
-	function loadModels() {
+	function loadModels(arModel) {
 
 		if(t3d) {
 
 			// Remove all models and load new ones.
+			
 
 			t3d.removeAll();
-			t3d.loadOcclusionHead("assets/models/brfv4_occlusion_head.json", numFacesToTrack);
-			t3d.loadModel("assets/models/brfv4_model.json", numFacesToTrack);
+			t3d.loadOcclusionHead(`assets/models/brfv4_occlusion_head.json`, numFacesToTrack);
+			t3d.loadModel(`assets/models/${arModel}`, numFacesToTrack);
 		}
 	}
 
-	virtualMirror.initCurrentExample = function(brfManager, resolution) {
+	virtualMirror.initCurrentExample = function(brfManager, resolution, arModel) {
 
 		
 		brfManager.init(resolution, resolution, virtualMirror.appId);
@@ -43,7 +44,7 @@ function init(brfv4, virtualMirror) {
 		brfManager.setFaceTrackingStartParams(	maxFaceSize * 0.20, maxFaceSize * 1.00, 32, 35, 32);
 		brfManager.setFaceTrackingResetParams(	maxFaceSize * 0.15, maxFaceSize * 1.00, 40, 55, 32);
 
-		loadModels();
+		loadModels(arModel);
 	};
 
 	virtualMirror.updateCurrentExample = function(brfManager, imageData, draw, resolution) {
@@ -93,9 +94,9 @@ function init(brfv4, virtualMirror) {
 
 };
 
-export function initThreeJS(brfv4, virtualMirror, brfManager, resolution, imageData) {
+export function initThreeJS(brfv4, virtualMirror, brfManager, resolution, imageData, arModel) {
 	
 	init(brfv4, virtualMirror);
-	virtualMirror.initCurrentExample(brfManager, resolution);
+	virtualMirror.initCurrentExample(brfManager, resolution, arModel);
 	virtualMirror.updateCurrentExample(brfManager, imageData, virtualMirror.drawing, resolution)
 }

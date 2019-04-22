@@ -1,0 +1,10 @@
+.product-list {
+    padding: 2.2em;
+}
+
+.product-card {
+    max-width: 300px;
+    box-shadow: 10px 10px 5px #aaaaaa;
+    border: 1px solid #BFBFBF;
+    padding: 20px;
+}

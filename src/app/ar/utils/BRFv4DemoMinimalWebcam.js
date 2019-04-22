@@ -5,6 +5,13 @@ import { initThreeJS } from './ThreeJS_example'
 
 // Once we know whether wasm is supported we add the correct library script and initialize the example.
 
+  var imageDataCtx  = null;                                   // only fetch the context once
+
+  var brfv4         = null; // the library namespace
+  var brfManager    = null; // the API
+  var resolution    = null; // the video stream resolution (usually 640x480)
+  var timeoutId     = -1;
+
 var _isWebAssemblySupported = (function() {
 
   function testSafariWebAssemblyBug() {
@@ -114,7 +121,7 @@ var onInitBRFv4 = function(brfManager, resolution) {
   // implement this function in your minimal example.
 };
 
-function initVirtualMirror() {
+function initVirtualMirror(arModel) {
 
   // This function is called after the BRFv4 script was added.
 
@@ -126,15 +133,11 @@ function initVirtualMirror() {
   // BRFv4 to be ready to be initialized (waitForSDK, initSDK)
 
   // Once BRFv4 was initialized, we can track faces (trackFaces)
+  
 
   var webcam        = document.getElementById("_webcam");     // our webcam video
   var imageData     = document.getElementById("_imageData");  // image data for BRFv4
-  var imageDataCtx  = null;                                   // only fetch the context once
-
-  var brfv4         = null; // the library namespace
-  var brfManager    = null; // the API
-  var resolution    = null; // the video stream resolution (usually 640x480)
-  var timeoutId     = -1;
+  
 
   // iOS has this weird behavior that it freezes the camera stream, if the CPU get's
   // stressed too much, but it doesn't unfreeze the stream upon CPU relaxation.
@@ -204,14 +207,13 @@ function initVirtualMirror() {
       } else {
 
         // trackFaces();
-        initThreeJS(brfv4, virtualMirror, brfManager, resolution, imageData);
+        initThreeJS(brfv4, virtualMirror, brfManager, resolution, imageData, arModel);
       }
     }
 
-    // start the camera stream...
-
+    
     window.navigator.mediaDevices.getUserMedia({ video: { width: 640, height: 480, frameRate: 30 } })
-      .then(onStreamFetched).catch(function () { alert("No camera available."); });
+      .then(onStreamFetched).catch(function (error) { console.log(error); alert("No camera available."); });
   
   }
 
@@ -267,7 +269,7 @@ function initVirtualMirror() {
     } else {
 
       // trackFaces();
-      initThreeJS(brfv4, virtualMirror, brfManager, resolution, imageData);
+      initThreeJS(brfv4, virtualMirror, brfManager, resolution, imageData, arModel);
     }
   }
 
@@ -296,7 +298,7 @@ function initVirtualMirror() {
     // We don't need 60 FPS, the camera will deliver at 30 FPS anyway.
     timeoutId = setTimeout(function() { 
       // trackFaces();
-      initThreeJS(brfv4, virtualMirror, brfManager, resolution, imageData);
+      initThreeJS(brfv4, virtualMirror, brfManager, resolution, imageData, arModel);
      }, (1000 / 30) - elapstedMs);
   }
 
@@ -304,6 +306,11 @@ function initVirtualMirror() {
 
 function destroyVirtualMirror() {
   webcamStream.getVideoTracks()[0].stop();
+}
+
+function changeModel(arModel) {
+  var imageData     = document.getElementById("_imageData");
+  initThreeJS(brfv4, virtualMirror, brfManager, resolution, imageData, arModel);
 }
 
 (function() {
@@ -336,4 +343,4 @@ function destroyVirtualMirror() {
 
 })();
 
-export { initVirtualMirror, destroyVirtualMirror }
+export { initVirtualMirror, destroyVirtualMirror, changeModel }

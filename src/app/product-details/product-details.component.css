@@ -1,0 +1,32 @@
+.detail-container {
+    padding: 50px 100px;
+    grid-column-gap: 100px;
+}
+
+.product-image-container {
+    padding: 50px;
+    max-width: 50em;
+}
+
+.detail-btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-right: 20px;
+    width: 200px;
+}
+
+.tab-content {
+    padding: 30px 20px;
+}
+
+.product-title {
+    font-size: 50px;
+}
+
+.product-price {
+    font-size: 30px;
+}
+
+.detail-stepper {
+    margin: 50px auto;
+}

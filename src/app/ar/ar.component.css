@@ -1,18 +1,58 @@
 .webcam-container {
-    width: 100%;
-    height: 100%;
-    position: relative;
+  width: 640px;
+  height: 480px;
+  position: relative;
+  margin: 50px;
 }
+
 video {
-    width: 640px;
-    height: 480px;
-    object-fit: cover;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
 }
 
 canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 640px !important;
-    height: 480px !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.product-list {
+  border-top: 1px solid #aaa;
+  border-bottom: 1px solid #aaa;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+.product-thumbnail {
+  border-right: 1px solid #aaa;
+  display: inline-block;
+}
+
+.product-thumbnail:first-of-type {
+  border-left: 1px solid #aaa;
+}
+
+.thumbnail {
+  width: 200px;
+}
+
+.product-list {
+
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+.product-details {
+  padding: 50px;
+}
+
+.detail-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-right: 20px;
+  width: 200px;
 }

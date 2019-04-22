@@ -1,0 +1,58 @@
+.cart-container {
+    padding: 50px;
+}
+
+.thumbnail {
+    width: 100px;
+    height: auto;
+}
+
+.thumbnail img {
+    width: 100%;
+    height: auto;
+}
+
+.product-list {
+    width: 70%;
+    margin: 20px auto;
+    overflow-y: scroll;
+    max-height: 600px;
+    overflow-x: hidden;
+    border: 1px solid #eee;
+    box-shadow: 0px 2px 2px #aaa;
+}
+
+.list-item {
+    padding: 40px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.data div, .data h3 {
+    margin: 10px 20px;
+}
+
+.cta-container {
+    margin: 50px auto;
+    text-align: center;
+    width: 100%;
+}
+
+.cta-btn {
+    width: 200px;
+    font-size: 20px;
+}
+
+.cart-btn {
+    /* padding: 10px 20px; */
+    margin-right: 50px;
+}
+
+.bill-container {
+    margin: 20px auto;
+}
+
+.bill-heading {
+    font-size: 18px;
+    font-weight: bold;
+}

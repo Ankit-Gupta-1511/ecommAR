@@ -1,3 +1,37 @@
-<p>
-  product-details works!
-</p>
+<div class="grid grid-columns-2 detail-container">
+  <div class="product-image-container">
+    <!-- <img src="{{ product.images[0] }}" alt=""> -->
+    <mat-tab-group headerPosition="below">
+        <mat-tab label="{{ i + 1 }}" *ngFor="let image of product.images; let i = index"> <img src="{{ image }}" alt=""> </mat-tab>
+    </mat-tab-group>
+  </div>
+  <div class="">
+    <h1 class="product-title">
+      {{ product.name }}
+    </h1>
+
+    <h1 class="product-price">
+      Rs. {{ product.price }}
+    </h1>
+
+    <div class="cta-btn-list">
+      <a mat-raised-button routerLink="/virtual-try-on/{{ product._id }}" class="alternate-cta-btn detail-btn">Try now</a>
+      <button mat-raised-button class="cta-btn detail-btn">Add To Cart</button>
+    </div>
+
+    <div class="detail-stepper">
+        <mat-tab-group>
+            <mat-tab label="Description"> 
+              <div class="description tab-content">
+                {{ product.description }}
+              </div>   
+            </mat-tab>
+            <mat-tab label="Features"> 
+              <div class="specifications tab-content">
+                {{ product.description }}
+              </div>  
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+  </div>
+</div>

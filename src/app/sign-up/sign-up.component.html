@@ -1,3 +1,50 @@
-<p>
-  sign-up works!
-</p>
+<div class="login-form flex align-items-center justify-content-center">
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+  <h1>Sign Up</h1>
+
+    <mat-form-field class="form-field">
+        <label>
+            Name:
+            <input matInput type="text" formControlName="name" #name>
+          </label>
+          <div *ngIf="signupForm.controls['name'].errors && !signupForm.controls['name'].pristine" class="error-msg">
+              <div [hidden]="!signupForm.controls['name'].errors.required">name is required.</div>
+          </div>
+    </mat-form-field>
+    <mat-form-field class="form-field">
+
+      <label>
+        Password:
+        <input matInput type="password" formControlName="password" #password>
+      </label>
+
+      <div *ngIf="signupForm.controls['password'].errors && !signupForm.controls['password'].pristine" class="error-msg">
+          <div [hidden]="!signupForm.controls['password'].errors.required">Password is required.</div>
+      </div>
+
+    </mat-form-field>
+    <mat-form-field class="form-field">
+        <label>
+            Email:
+            <input matInput type="email" formControlName="email" #email>
+          </label>
+    
+          <div *ngIf="signupForm.controls['email'].errors && !signupForm.controls['email'].pristine" class="error-msg">
+              <div [hidden]="!signupForm.controls['email'].errors.required">Password is required.</div>
+          </div>
+    </mat-form-field>
+    <mat-form-field class="form-field">
+        <label>
+            Avatar Image:
+            <input matInput type="text" formControlName="avatar" #avatar>
+          </label>
+    
+          <div *ngIf="signupForm.controls['avatar'].errors && !signupForm.controls['avatar'].pristine" class="error-msg">
+              <div [hidden]="!signupForm.controls['avatar'].errors.required">Password is required.</div>
+          </div>
+    </mat-form-field>
+    <div class="flex justify-content-center">
+      <button mat-raised-button class="cta-btn" type="submit" [disabled]="!signupForm.valid">Submit</button>
+    </div>
+  </form>
+</div>
