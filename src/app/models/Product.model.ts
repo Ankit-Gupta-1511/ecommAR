@@ -6,4 +6,5 @@ export interface Product {
     date: Date;
     description?: string;
     arModel?;
+    cartId?: string;
 }

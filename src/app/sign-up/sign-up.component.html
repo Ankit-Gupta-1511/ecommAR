@@ -23,6 +23,20 @@
       </div>
 
     </mat-form-field>
+
+    <mat-form-field class="form-field">
+
+      <label>
+        Enter Password Again:
+        <input matInput type="password" formControlName="password2" #password>
+      </label>
+
+      <div *ngIf="signupForm.controls['password'].errors && !signupForm.controls['password'].pristine" class="error-msg">
+          <div [hidden]="!signupForm.controls['password'].errors.required">Password is required.</div>
+      </div>
+
+    </mat-form-field>
+
     <mat-form-field class="form-field">
         <label>
             Email:

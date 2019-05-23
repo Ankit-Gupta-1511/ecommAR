@@ -25,6 +25,24 @@ export class ProductService {
     return this.http.get<Product>(GLOBAL.HOST + GLOBAL.PRODUCT + '/' + _id);
   }
 
+  addToCart(_id): Observable<any> {
+    const header = {
+      headers: new HttpHeaders()
+        .set('Authorization',  localStorage.getItem('token'))
+    };
+
+    return this.http.put<any>(GLOBAL.HOST + GLOBAL.PRODUCT + '/' + _id + GLOBAL.ADD_TO_CART, {}, header);
+  }
+
+  removeFromCart(_id): Observable<any> {
+    const header = {
+      headers: new HttpHeaders()
+        .set('Authorization',  localStorage.getItem('token'))
+    };
+
+    return this.http.put<any>(GLOBAL.HOST + GLOBAL.PRODUCT + '/' + _id + GLOBAL.REMOVE_FROM_CART, {}, header);
+  }
+
   getMockProduct(_id): Product {
     return {
       _id: '1',

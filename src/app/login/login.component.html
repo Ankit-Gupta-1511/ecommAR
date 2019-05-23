@@ -5,9 +5,9 @@
       <mat-form-field class="form-field">
         <label>
           Username:
-          <input matInput type="text" formControlName="username" #username>
+          <input matInput type="text" formControlName="email" #username>
         </label>
-        <div *ngIf="loginForm.controls['username'].errors && !loginForm.controls['username'].pristine" class="error-msg">
+        <div *ngIf="loginForm.controls['email'].errors && !loginForm.controls['email'].pristine" class="error-msg">
             <div [hidden]="!loginForm.controls['username'].errors.required">Username is required.</div>
         </div>
       </mat-form-field>

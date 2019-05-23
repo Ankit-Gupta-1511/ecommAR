@@ -26,4 +26,8 @@ export class ProductListComponent implements OnInit {
     });
   }
 
+  addToCart(id) {
+    this.productService.addToCart(id).subscribe(data => console.log(data));
+  }
+
 }

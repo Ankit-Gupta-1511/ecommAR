@@ -19,7 +19,7 @@
             </p>
           </mat-card-content>
           <mat-card-actions>
-            <button mat-raised-button class="cta-btn">Add To Cart</button>
+            <button mat-raised-button class="cta-btn" (click)="addToCart(product._id)">Add To Cart</button>
             <a mat-raised-button routerLink="/virtual-try-on/{{ product._id }}" class="alternate-cta-btn">Try Now</a>
           </mat-card-actions>
         </mat-card>

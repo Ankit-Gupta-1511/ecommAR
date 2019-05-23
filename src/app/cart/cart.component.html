@@ -10,7 +10,7 @@
                       <h3>{{ product.name }}</h3>
                       <h3>Rs. {{ product.price }}</h3>
                       <div>
-                          <button mat-raised-button color="warn" class="cart-btn">Remove</button>
+                          <button mat-raised-button color="warn" class="cart-btn" (click)="removeFromCart(product.cartId, product)">Remove</button>
                       </div>
                     </div>
                   <!-- <mat-divider></mat-divider> -->

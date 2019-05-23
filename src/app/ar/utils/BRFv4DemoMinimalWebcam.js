@@ -279,9 +279,9 @@ function initVirtualMirror(arModel) {
 
     var timeStart = window.performance.now();
 
-    imageDataCtx.setTransform(-1.0, 0, 0, 1, resolution.width, 0); // A virtual mirror should be... mirrored
+    // imageDataCtx.setTransform(-1.0, 0, 0, 1, resolution.width, 0); // A virtual mirror should be... mirrored
     imageDataCtx.drawImage(webcam, 0, 0, resolution.width, resolution.height);
-    imageDataCtx.setTransform( 1.0, 0, 0, 1, 0, 0); // unmirrored for drawing the results
+    // imageDataCtx.setTransform( 1.0, 0, 0, 1, 0, 0); // unmirrored for drawing the results
 
     brfManager.update(imageDataCtx.getImageData(0, 0, resolution.width, resolution.height).data);
 

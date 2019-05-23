@@ -53,7 +53,7 @@ function init(brfv4, virtualMirror) {
 		let imageDataCtx = document.getElementById('_imageData').getContext('2d');
 		imageDataCtx.setTransform(-1.0, 0, 0, 1, resolution.width, 0); // A virtual mirror should be... mirrored
     	imageDataCtx.drawImage(webcam, 0, 0, resolution.width, resolution.height);
-		// imageDataCtx.setTransform( 1.0, 0, 0, 1, 0, 0); // unmirrored for drawing the results
+		imageDataCtx.setTransform( 1.0, 0, 0, 1, 0, 0); // unmirrored for drawing the results
 	
 		brfManager.update(imageDataCtx.getImageData(0, 0, resolution.width, resolution.height).data);
 
